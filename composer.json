@@ -1,0 +1,17 @@
+{
+    "name": "mnaghlani/cafecms.mn",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "RouterService\\" : "app/services/router/",
+            "Core\\"  : "core/"
+        }
+    },
+    "authors": [
+        {
+            "name": "mohammdnaghlani",
+            "email": "mr.naghlani@gmail.com"
+        }
+    ],
+    "require": {}
+}
