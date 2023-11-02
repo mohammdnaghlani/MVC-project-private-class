@@ -6,6 +6,11 @@
 /**
  * $router   RouterService\Router
  */
-echo '<pre>' ;
-var_dump($router->getRoutes()) ;
-echo '</pre>' ;
+try{
+    echo '<pre>' ;
+    var_dump($router->start()) ;
+    echo '</pre>' ;
+}catch(Exception $error)
+{
+    echo $error->getMessage();
+}

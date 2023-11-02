@@ -3,16 +3,13 @@
 namespace RouterService ;
 
 use Core\Request;
+use Exception;
 
 class Router 
 {
     protected Request $request ;
 
     protected array $routes ;
-
-
-
-
 
     public function __construct(Request $request)
     {
@@ -21,8 +18,53 @@ class Router
    
     public function start()
     {
-        
+      $current_uri = $this->checkCurrentUri();
+
+
+      $this->request->is_in($current_uri['method']) ;
+
+      return true ;
     }
+    
+    protected function checkCurrentUri()
+    {
+      $current_uri =  $this->request->getCurrentUri() ; 
+      $checkUri = key_exists($current_uri , $this->routes) ;
+      if(!$checkUri){
+        throw new Exception("Page not found 404 !") ;
+      }
+      return $this->routes[$current_uri];
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     public function setRoute(string $uri , string $method , $information)
     {       
